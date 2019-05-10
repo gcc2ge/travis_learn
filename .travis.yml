@@ -6,6 +6,8 @@ script: npm run test
 before_install:
 - openssl aes-256-cbc -K $encrypted_6eca9b4f4b08_key -iv $encrypted_6eca9b4f4b08_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - echo -e "Host 132.148.155.14\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 after_success:
   - tar -jcf gcc2ge.tar.bz2 *
   - scp gcc2ge.tar.bz2 ionchain@132.148.155.14:~/
