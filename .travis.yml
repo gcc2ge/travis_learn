@@ -7,13 +7,13 @@ matrix:
       sudo: required
       go: 1.9.x
       script:
-        - go test
+        - go test ./main
 
     - os: osx
       go: 1.9.x
       sudo: required
       script:
-        - go test
+        - go test ./main
 
 script: 
   - make main
