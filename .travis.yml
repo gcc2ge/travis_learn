@@ -8,12 +8,16 @@ matrix:
       go: 1.9.x
       script:
         - go test ./main
+        - make main
+        - mv ./build/bin/main ./build/bin/main-$TRAVIS_OS_NAME
 
     - os: osx
       go: 1.9.x
       sudo: required
       script:
         - go test ./main
+        - make main
+        - mv ./build/bin/main ./build/bin/main-$TRAVIS_OS_NAME
 
 script: 
   - make main
