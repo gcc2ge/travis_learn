@@ -25,8 +25,9 @@ script:
   - mv ./build/bin/main ./build/bin/main-$TRAVIS_OS_NAME
 deploy:
   provider: releases
+  api_key:
+      secure: EJz4cZRdB1E3NulOVMGaO4St1K0uv/6pQCI8z85RELL0lrw9c3qfcm+aWHskL24gv7BO3cuT3Q9R7uPZzu0X2LPdvBWHklTWogl9yZXF3i8lIoDmcKXj+MEJdzlV+2xfplcLs3c3epzHgpotXb0j0xtsLoPpwxBY9g6BxiowvZu+fMMJB9whlghwaWgxZAlY1v56mDGPjUPGLmutYCPR5Wqnn5JK7XZ4Vs+GKaQWF+a462kT0UC32p4Uvj1X+jxUdUCfG1BVbMpIuSXA1Y730SjwCC4hsFq1kjWC5NuIpWO5f9Ph9S+cHAf1pOS0RIDl4DsdphPUvwNDOALQBJPF7Av8C7dps6WQuw8LLX2mZonBVmLP636wDjkbwCwx2KHU7XojP5GxOwEMuxgvXN5rrB239kr6eX7aqObCG7xJfZCiSFuM1mkbFFqbK8CSwqUrrlkKFsCSDvXydykXNDmBk9lucfQ09n7Vedq9f+b3Z2hyH8PXgYZz0eKIE8PbDue7gBMjyHYDUXBDbrdpF35dhlO55f4MaFoMHhemVIPdDUiTKayCh7WAtYgNGfQyEVMhR+vIBPUflbAjEJIFx5wTRA97o/RbPI1tVPtcHwzlN8KaAqIb4NqrP5RQ0UcBiapPL/MhdCqGyx+UkAv1jjxj49gWOygPmC6w6Ch42aeV8no=
   file: "./build/bin/main-$TRAVIS_OS_NAME"
-  api_key: ""
   skip_cleanup: true
   overwrite: true
   on:
