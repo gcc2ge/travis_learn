@@ -11,8 +11,6 @@ matrix:
         - sudo modprobe fuse
         - sudo chmod 666 /dev/fuse
         - sudo chown root:$USER /etc/fuse.conf
-        - go run build/ci.go install
-        - go run build/ci.go test -coverage
 
     - os: osx
       go: 1.9.x
@@ -21,15 +19,13 @@ matrix:
         - brew update
         - brew install caskroom/cask/brew-cask
         - brew cask install osxfuse
-        - go run build/ci.go install
-        - go run build/ci.go test -coverage
 
 script: 
-  - make gttc
-  - mv ./build/bin/gttc ./build/bin/gttc-$TRAVIS_OS_NAME
+  - make main
+  - mv ./build/bin/main ./build/bin/main-$TRAVIS_OS_NAME
 deploy:
   provider: releases
-  file: ""
+  file: "./build/bin/main-$TRAVIS_OS_NAME"
   api_key: ""
   skip_cleanup: true
   overwrite: true
